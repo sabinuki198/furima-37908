@@ -11,7 +11,7 @@
 | last_name          | string    | null: false               |
 | first_kana         | string    | null: false               |
 | last_kana          | string    | null: false               |
-| birthday           | integer   | null: false               |
+| birthday           | date      | null: false               |
 
 ### Association
 
@@ -24,12 +24,13 @@
 | ----------------- | ------------- | ------------------------------ |
 | name              | string        | null: false                    |
 | explantion        | text          | null: false                    |
-| category          | references    | null: false, foreign_key: true |
-| condition         | references    | null: false, foreign_key: true |
-| bear              | references    | null: false, foreign_key: true |
-| area              | references    | null: false, foreign_key: true |
-| delivery_days     | references    | null: false, foreign_key: true |
+| category_id       | integer       | null: false, foreign_key: true |
+| condition_id      | integer       | null: false, foreign_key: true |
+| bear_id           | integer       | null: false, foreign_key: true |
+| area_id           | integer       | null: false, foreign_key: true |
+| delivery_days_id  | integer       | null: false, foreign_key: true |
 | price             | integer       | null: false                    |
+| user              | references    | null: false, foreign_key: true |
 
 ### Association
 
@@ -48,17 +49,18 @@
 
 - belongs_to :user
 - belongs_to :item
-- has_one :shipping_addresses
+- has_one :shipping_address
 
-## shipping_address テーブル
+## shipping_addresses テーブル
 | column            | Type          | Options                        |
 | ----------------- | ------------- | ------------------------------ |
 | postal_code       | integer       | null: false,                   |
-| prefecture        | references    | null: false, foreign_key: true |
+| prefecture_id     | integer       | null: false, foreign_key: true |
 | manicipality      | string        | null: false                    |
 | address           | string        | null: false                    |
 | building          | string        | null: false                    |
 | tel               | integer       | null: false                    |
+| purchase          | references    | null: false, foreign_key: true
 
 ### Association
 - belongs_to :purchase
