@@ -24,11 +24,11 @@
 | ----------------- | ------------- | ------------------------------ |
 | name              | string        | null: false                    |
 | explanation       | text          | null: false                    |
-| category_id       | integer       | null: false,                   |
-| condition_id      | integer       | null: false,                   |
-| bear_id           | integer       | null: false,                   |
-| area_id           | integer       | null: false,                   |
-| delivery_day_id   | integer       | null: false,                   |
+| category_id       | integer       | null: false                    |
+| condition_id      | integer       | null: false                    |
+| bear_id           | integer       | null: false                    |
+| area_id           | integer       | null: false                    |
+| delivery_day_id   | integer       | null: false                    |
 | price             | integer       | null: false                    |
 | user              | references    | null: false, foreign_key: true |
 
@@ -54,8 +54,8 @@
 ## shipping_addresses テーブル
 | column            | Type          | Options                        |
 | ----------------- | ------------- | ------------------------------ |
-| postal_code       | string        | null: false,                   |
-| prefecture_id     | integer       | null: false,                   |
+| postal_code       | string        | null: false                    |
+| area_id           | integer       | null: false                    |
 | municipality      | string        | null: false                    |
 | address           | string        | null: false                    |
 | building          | string        |                                |
