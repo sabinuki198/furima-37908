@@ -39,6 +39,8 @@ class ItemsController < ApplicationController
     if user_signed_in? && item.user_id == current_user.id
       item.destroy
       redirect_to root_path
+    else
+      redirect_to item_path(item.id)
     end
   end
 
