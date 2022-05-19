@@ -60,7 +60,7 @@
 | address           | string        | null: false                    |
 | building          | string        |                                |
 | tel               | string        | null: false                    |
-| purchase          | references    | null: false, foreign_key: true
+| purchase          | references    | null: false, foreign_key: true |
 
 ### Association
 - belongs_to :purchase
