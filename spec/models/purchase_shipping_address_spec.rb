@@ -15,8 +15,8 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'buidingが空でも購入できる' do
         @purchase_shipping_address.building = ''
         expect(@purchase_shipping_address).to be_valid
+      end
     end
-  end
     context '購入できない場合' do
       it 'postal_codeが空の場合には購入できない' do
         @purchase_shipping_address.postal_code = ''
@@ -26,17 +26,17 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'postal_codeが半角数字3桁-(ハイフン)半角数字4桁以外では購入できない' do
         @purchase_shipping_address.postal_code = '1234-56789'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'postal_codeが全角数字では購入できない' do
         @purchase_shipping_address.postal_code = '１２３-４５６７'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'postal_codeがハイフン無しでは購入できない' do
         @purchase_shipping_address.postal_code = '123456'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Postal code is invalid. Include hyphen(-)')
       end
       it 'area_idが空の場合には購入できない' do
         @purchase_shipping_address.area_id = ''
@@ -56,7 +56,7 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'municipalityが全角かな、カナ、漢字以外では購入できない' do
         @purchase_shipping_address.municipality = 'ｱｲｳｴｵ'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Municipality is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Municipality is invalid')
       end
       it 'addressが空の場合には購入できない' do
         @purchase_shipping_address.address = ''
@@ -71,17 +71,17 @@ RSpec.describe PurchaseShippingAddress, type: :model do
       it 'telが全角数字の場合には購入できない' do
         @purchase_shipping_address.tel = '１２３４５６７８９０'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'telが9桁未満の場合には購入できない' do
         @purchase_shipping_address.tel = '123456789'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'telが12桁より多い場合には購入できない' do
         @purchase_shipping_address.tel = '123456789012'
         @purchase_shipping_address.valid?
-        expect(@purchase_shipping_address.errors.full_messages).to include("Tel is invalid")
+        expect(@purchase_shipping_address.errors.full_messages).to include('Tel is invalid')
       end
       it 'tokenが空の場合には購入できない' do
         @purchase_shipping_address.token = ''
