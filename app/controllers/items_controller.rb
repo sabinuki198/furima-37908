@@ -20,10 +20,15 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @purchase_shipping_address = PurchaseShippingAddress.new
   end
 
   def edit
-    redirect_to root_path unless @item.user_id == current_user.id
+    if @item.user_id != current_user.id
+      redirect_to root_path
+    elsif @item.purchase.present?
+      redirect_to root_path
+    end
   end
 
   def update
